@@ -19,11 +19,16 @@ function displayBooks() {
 	}
 }
 
-let $button = document.querySelector('button')
+let $submit = document.querySelector('#submit')
 let $input = document.querySelector('input')
+let $myModalContainer = document.querySelector('.myModalContainer')
+let $newBook = document.querySelector('#newBook')
+let $close = document.querySelector('.close')
 
-$button.addEventListener('click', addBookToLibrary)
+$submit.addEventListener('click', addBookToLibrary)
 $input.addEventListener('keydown', enterSubmit)
+$newBook.addEventListener('click', openModal)
+$close.addEventListener('click', closeModal)
 
 function enterSubmit (e) {
 	if(e.key === 'Enter') {
@@ -41,4 +46,12 @@ function addBookToLibrary(e) {
 	displayBooks()
 	$input.value = ''
 	e.preventDefault()
+}
+
+function openModal() {
+	$myModalContainer.style.display = 'block';
+}
+
+function closeModal () {
+	$myModalContainer.style.display = 'none';
 }
