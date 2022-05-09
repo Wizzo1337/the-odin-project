@@ -23,9 +23,22 @@ let $button = document.querySelector('button')
 let $input = document.querySelector('input')
 
 $button.addEventListener('click', addBookToLibrary)
+$input.addEventListener('keydown', enterSubmit)
 
-function addBookToLibrary() {
+function enterSubmit (e) {
+	if(e.key === 'Enter') {
+		if ($input.value !== '') {
+			myLibrary.push($input.value)
+		}
+		displayBooks()
+		$input.value = ''
+		e.preventDefault()
+	}
+}
+
+function addBookToLibrary(e) {
 	myLibrary.push($input.value)
 	displayBooks()
 	$input.value = ''
+	e.preventDefault()
 }
