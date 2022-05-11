@@ -43,17 +43,18 @@ function displayBooks() {
 	let newLi = document.createElement('li');
 	for (let i = 0; i < myLibrary.length; i++) {
 		$flexCont.appendChild(newDiv);
-		newDiv.textContent = 'this is div text';
 		newDiv.appendChild(newUl);
-		newUl.text = 'this is ul text'
-		// $ul.appendChild(newLi);
-		// newLi.textContent = `Title: ${myLibrary[i].title}`;
-		// $ul.appendChild(newLi);
-		// newLi.textContent = `Author: ${myLibrary[i].author}`;
-		// $ul.append(newLi);
-		// newLi.textContent = `Pages: ${myLibrary[i].pageNum}`;
-		// $ul.append(newLi);
-		// newLi.textContent = `Read: ${myLibrary[i].read}`;
+		newLi.textContent = `Title: ${myLibrary[i].title}`;
+		newUl.appendChild(newLi);
+		let newLiClone = newLi.cloneNode();
+		newUl.appendChild(newLiClone);
+		newLiClone.textContent = `Author: ${myLibrary[i].author}`;
+		let newLiClone2 = newLi.cloneNode();
+		newUl.appendChild(newLiClone2);
+		newLiClone2.textContent = `Pages: ${myLibrary[i].pageNum}`;
+		let newLiClone3 = newLi.cloneNode();
+		newUl.appendChild(newLiClone3);
+		newLiClone3.textContent = `Read: ${myLibrary[i].read}`
 	}
 }
 
