@@ -1,4 +1,3 @@
-
 class Book {
 	constructor(title, author, pageNum, read) {
 		this.title = title;
@@ -20,8 +19,8 @@ let $newBook = document.querySelector('#newBook');
 let $close = document.querySelector('.close');
 
 $submit.addEventListener('click', submit);
-$title.addEventListener('keydown', submit);
-$author.addEventListener('keydown', submit);
+$submit.addEventListener('keydown', submit);
+$submit.addEventListener('keydown', submit);
 $pages.addEventListener('keydown', submit);
 $readStatus.addEventListener('change', checked);
 $newBook.addEventListener('click', openModal);
@@ -54,7 +53,7 @@ function displayBooks() {
 		newLiClone2.textContent = `Pages: ${myLibrary[i].pageNum}`;
 		let newLiClone3 = newLi.cloneNode();
 		newUl.appendChild(newLiClone3);
-		newLiClone3.textContent = `Read: ${myLibrary[i].read}`
+		newLiClone3.textContent = `Read: ${myLibrary[i].read}`;
 	}
 }
 
@@ -86,9 +85,9 @@ function closeModal(e) {
 function checked(e) {
 	if (e.target.checked) {
 		console.log('Checkbox is checked!');
-		return true
+		return true;
 	} else {
 		console.log('Checkbox is NOT checked.....');
-		return false
+		return false;
 	}
 }
