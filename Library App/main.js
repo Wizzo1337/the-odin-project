@@ -20,8 +20,6 @@ let $close = document.querySelector('.close');
 
 $submit.addEventListener('click', submit);
 $submit.addEventListener('keydown', submit);
-$submit.addEventListener('keydown', submit);
-$pages.addEventListener('keydown', submit);
 $readStatus.addEventListener('change', checked);
 $newBook.addEventListener('click', openModal);
 $close.addEventListener('click', closeModal);
@@ -40,7 +38,7 @@ function displayBooks() {
 	let newUl = document.createElement('ul');
 	let $ul = document.querySelector('ul');
 	let newLi = document.createElement('li');
-	for (let i = 0; i < myLibrary.length; i++) {
+	for (let i = myLibrary.length-1; i < myLibrary.length; i++) {
 		$flexCont.appendChild(newDiv);
 		newDiv.appendChild(newUl);
 		newLi.textContent = `Title: ${myLibrary[i].title}`;
