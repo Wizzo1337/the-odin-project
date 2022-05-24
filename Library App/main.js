@@ -32,14 +32,18 @@ function displayBooks() {
 		console.log("don't leave blank!");
 		return;
 	}
+
 	let $flexCont = document.querySelector('.flex-container');
 	let newDiv = document.createElement('div');
 	let $div = document.querySelector('div');
 	let newUl = document.createElement('ul');
 	let $ul = document.querySelector('ul');
 	let newLi = document.createElement('li');
-	for (let i = myLibrary.length-1; i < myLibrary.length; i++) {
+	let newBtn = document.createElement('button');
+
+	for (let i = myLibrary.length - 1; i < myLibrary.length; i++) {
 		$flexCont.appendChild(newDiv);
+		newDiv.classList.add(`index${i}`);
 		newDiv.appendChild(newUl);
 		newLi.textContent = `Title: ${myLibrary[i].title}`;
 		newUl.appendChild(newLi);
@@ -52,8 +56,17 @@ function displayBooks() {
 		let newLiClone3 = newLi.cloneNode();
 		newUl.appendChild(newLiClone3);
 		newLiClone3.textContent = `Read: ${myLibrary[i].read}`;
+		newUl.appendChild(newBtn);
+		newBtn.textContent = 'Remove Book';
+		newBtn.classList.add(`removeBook${i}`);
+		let $removeBookBtn = document.querySelector(`.removeBook${i}`)
+		$removeBookBtn.addEventListener('click', function () {
+			document.querySelector(`.index${i}`).remove()
+		})
 	}
 }
+
+
 
 function submit(e) {
 	e.preventDefault();
@@ -82,10 +95,8 @@ function closeModal(e) {
 
 function checked(e) {
 	if (e.target.checked) {
-		console.log('Checkbox is checked!');
 		return true;
 	} else {
-		console.log('Checkbox is NOT checked.....');
 		return false;
 	}
 }
